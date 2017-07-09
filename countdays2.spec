@@ -5,8 +5,8 @@ block_cipher = None
 
 a = Analysis(['countdays2.py'],
              pathex=['/Users/mac/PycharmProjects/zhengjianwei'],
-             binaries=None,
-             datas=None,
+             binaries=[],
+             datas=[],
              hiddenimports=[],
              hookspath=[],
              runtime_hooks=[],
