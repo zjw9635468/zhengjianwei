@@ -81,7 +81,7 @@ def batach_feature(wav_dir):
 # file.close()
 
 
-def get_data(h5_path='dataProcessing.h5'):
+def get_data(h5_path='../dataProcessing.h5'):
     file=h5py.File(h5_path,'r')
     trainX=file['trainX'][:]
     trainY = file['trainY'][:]
