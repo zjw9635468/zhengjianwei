@@ -8,6 +8,7 @@ import os
 from keras.models import model_from_json
 from sklearnModel import get_accuracy
 
+
 trainX,trainY,testX,testY,validX,validY=get_data()
 
 # fix random seed for reproducibility
