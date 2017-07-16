@@ -33,9 +33,9 @@ def process_data_LSTM(X,Y):
     return finalX,finalY
 
 
-trainX,trainY=process_data_LSTM(trainX[:100000],trainY[:100000])
-validX,validY=process_data_LSTM(validX[:10000],validY[:10000])
-testX,testY=process_data_LSTM(testX[:10000],testY[:10000])
+trainX,trainY=process_data_LSTM(trainX,trainY)
+validX,validY=process_data_LSTM(validX,validY)
+testX,testY=process_data_LSTM(testX,testY)
 print trainY
 
 
@@ -53,6 +53,7 @@ if os.path.isfile('kerasLSTM.json'):
     model=model_from_json(loaded_model_json)
     model.load_weights('kerasLSTM.h5')
     print("Saved model to disk")
+    model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 else:
     model=create_model()    
     model.fit(trainX,trainY,nb_epoch=10,batch_size=32)
@@ -66,5 +67,5 @@ if not os.path.isfile('kerasLSTM.json'):
 
 
 predict_Y=model.predict(validX)
-scores = model.evaluate(validX, validY, verbose=0)
+scores = model.evaluate(validX,validY, verbose=0)
 print("Accuracy: %.2f%%" % (scores[1]*100))
